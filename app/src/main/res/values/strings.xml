@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Attendence Application</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="menu">Menu</string>
+    <string name="forgot_password_label">Forgot Password</string>
+    <string name="create_one"><u>create one</u></string>
+    <string name="lbl_forgot_password">Forgot password?</string>
+    <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
+    <string name="hint_new_email">New Email</string>
+    <string name="btn_back"><![CDATA[<< Back]]></string>
+</resources>

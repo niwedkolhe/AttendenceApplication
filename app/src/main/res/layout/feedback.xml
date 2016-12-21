@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ecf0f1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Any Suggestions/Feedback?"
+        android:layout_gravity="center"
+        android:textSize="26dp"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your feedback/suggestions valuable to us"
+        android:textSize="19dp"
+        android:layout_marginTop="18dp"
+        android:layout_gravity="center"
+        />
+
+    <EditText
+        android:background="#fff"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Your Name"
+        android:id="@+id/yourname" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:padding="18dp"
+        android:background="#fff"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="E-mail"
+        android:id="@+id/email" />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:padding="18dp"
+        android:background="#fff"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:hint="Your Suggesstion/Feedback"
+        android:id="@+id/yourfeeback" />
+
+    <Button
+        android:id="@+id/submitfeedbackbutton"
+        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_gravity="center"
+        android:elevation="0dp"/>
+
+</LinearLayout>
