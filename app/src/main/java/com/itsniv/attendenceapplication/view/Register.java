@@ -31,7 +31,7 @@ import java.util.ArrayList;
 
 public class Register extends AppCompatActivity  {
 
-    EditText vfirstname,vlastname,vemail,vpassword,vcnfpassword,vmobileno;
+    EditText vfirstname,vlastname,vemail,vpassword,vmobileno;
     Button vregister;
     FirebaseAuth firebaseAuth;
     DatabaseReference mDatabase;
@@ -43,7 +43,6 @@ public class Register extends AppCompatActivity  {
 
         init();
     }
-
     private void init()
     {
         firebaseAuth=FirebaseAuth.getInstance();
@@ -52,13 +51,12 @@ public class Register extends AppCompatActivity  {
         vfirstname=(EditText)findViewById(R.id.editText_UserFirstName);
         vlastname=(EditText)findViewById(R.id.editText_UserLastName);
         vpassword=(EditText)findViewById(R.id.editText_Password);
-        vcnfpassword=(EditText)findViewById(R.id.editText_ConfirmPassword);
         vemail=(EditText)findViewById(R.id.editText_EmailId);
         vmobileno=(EditText)findViewById(R.id.editText_MobileNumber);
 
         final Spinner spinnerlist=(Spinner)findViewById(R.id.spinnerCourse);
         ArrayList<String> list=new ArrayList<String>();
-        list.add("");
+        list.add("COURSE");
         list.add("Android");
         list.add("iOS");
         list.add("UI/UX");
@@ -69,7 +67,7 @@ public class Register extends AppCompatActivity  {
 
         final Spinner time=(Spinner)findViewById(R.id.spinnerBatchTime);
         ArrayList<String> timelist=new ArrayList<String>();
-        timelist.add("");
+        timelist.add("TIMING");
         timelist.add("08-10am");
         timelist.add("09-12pm");
         timelist.add("10-01pm");
@@ -86,17 +84,6 @@ public class Register extends AppCompatActivity  {
         vregister.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                UserModelInfo userModelInfo=new UserModelInfo();
-
-                userModelInfo.setVfirstname(vfirstname.getText().toString());
-                userModelInfo.setVlastname(vlastname.getText().toString());
-                userModelInfo.setVmobileno(vmobileno.getText().toString());
-                userModelInfo.setVemail(vemail.getText().toString());
-                userModelInfo.setVpassword(vpassword.getText().toString());
-
-                mDatabase.child("USER").child("Student").push().child("1").setValue(userModelInfo);
-
                 AlertDialog.Builder alartdialog=new AlertDialog.Builder(Register.this);
                 alartdialog.setTitle("Confirm Registration");
                 alartdialog.setMessage("Please Select ")
@@ -109,7 +96,6 @@ public class Register extends AppCompatActivity  {
                                 String mobile=vmobileno.getText().toString();
                                 String email=vemail.getText().toString();
                                 String password=vpassword.getText().toString();
-                                String pswcnf=vcnfpassword.getText().toString();
 
 
 
@@ -163,16 +149,27 @@ public class Register extends AppCompatActivity  {
                                 }else {vcnfpassword.setError("Password not matching");}
 */
                                 Intent intent=new Intent(Register.this, Menu.class);
-                                firebaseAuth.createUserWithEmailAndPassword(vemail.getText().toString(),vcnfpassword.getText().toString())
+                                startActivity(intent);
+
+                                UserModelInfo userModelInfo=new UserModelInfo();
+
+                                userModelInfo.setVfirstname(vfirstname.getText().toString());
+                                userModelInfo.setVlastname(vlastname.getText().toString());
+                                userModelInfo.setVemail(vemail.getText().toString());
+                                userModelInfo.setVmobileno(vmobileno.getText().toString());
+                                userModelInfo.setVpassword(vpassword.getText().toString());
+
+                                mDatabase.child("USER").child("Students").push().setValue(userModelInfo);
+
+
+
+                                Toast.makeText(Register.this,"successfully Registered",Toast.LENGTH_SHORT).show();
+                                firebaseAuth.createUserWithEmailAndPassword(vemail.getText().toString(),vpassword.getText().toString())
                                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                             @Override
                                             public void onComplete(@NonNull Task<AuthResult> task) {
                                             }
                                         });
-
-                                startActivity(intent);
-                                Toast.makeText(Register.this,"successfully Registered",Toast.LENGTH_SHORT).show();
-
                             }
                         }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override

@@ -63,7 +63,7 @@ public class Menu extends AppCompatActivity {
         }
 
         @Override
-        public int getCount() {
+        public int getCount()    {
             return fragmetList.size();
         }
 

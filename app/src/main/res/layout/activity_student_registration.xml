@@ -111,23 +111,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-
-                <EditText
-                    android:id="@+id/editText_ConfirmPassword"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableTint="#FF4081"
-                    android:textColorHint="@color/hint_color"
-                    android:textColor="#000"
-                    android:hint="Confirm Password"
-                    android:inputType="textPassword"/>
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
                 <EditText
                     android:id="@+id/editText_MobileNumber"
                     android:layout_width="fill_parent"
@@ -140,18 +123,25 @@
             </android.support.design.widget.TextInputLayout>
 
             <Spinner
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:id="@+id/spinnerCourse"
                 />
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
 
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/spinnerBatchTime"
-                />
+                android:layout_alignBottom="@+id/scrollView"
+                android:layout_alignLeft="@+id/rlLoginTitle"
+                android:layout_alignStart="@+id/rlLoginTitle"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="21dp" />
+
             <Button
                 android:id="@+id/register_button"
                 android:layout_margin="10dp"
@@ -163,11 +153,6 @@
                 android:textColor="@color/white"
                 android:text="Create Account"
                 />
-
         </LinearLayout>
-
-
     </ScrollView>
-
-
 </RelativeLayout>

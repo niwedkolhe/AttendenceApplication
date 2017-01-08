@@ -71,7 +71,6 @@ public class Login extends AppCompatActivity {
                         });
             }
         });
-
         vforgotpsw=(TextView)findViewById(R.id.txtForgotPassword);
         vcreteone=(TextView)findViewById(R.id.textViewRegisterTextClick);
         firebaseAuth=FirebaseAuth.getInstance();

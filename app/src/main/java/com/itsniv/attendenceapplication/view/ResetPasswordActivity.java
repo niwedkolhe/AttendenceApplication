@@ -30,13 +30,9 @@ public class ResetPasswordActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
-
-
         init();
     }
-
     private void init() {
-
         inputEmail = (EditText) findViewById(R.id.email);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
         btnBack = (Button) findViewById(R.id.btn_back);
@@ -59,7 +55,6 @@ public class ResetPasswordActivity extends AppCompatActivity {
                     Toast.makeText(getApplication(), "Enter your registered email id", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 progressBar.setVisibility(View.VISIBLE);
                 auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -70,7 +65,6 @@ public class ResetPasswordActivity extends AppCompatActivity {
                             Toast.makeText(ResetPasswordActivity.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
                         }
                         progressBar.setVisibility(View.GONE);
-
                     }
                 });
             }
